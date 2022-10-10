@@ -1,8 +1,11 @@
 from django.db import models
 # Create your models here.
 class Employee(models.Model):
-    emplyee_regNo = models.TextField(unique=True)
-    emplyee_name = models.TextField()
-    employee_email = models.TextField()
-    employee_mobile = models.TextField(null=True)
-    created_at = models.DateTimeField(auto_now=True)
+    name = models.TextField()
+    employee_ID = models.TextField(unique=True)
+    team = models.TextField(default='Not Mentioned')
+    hourly_Rate = models.TextField(default='Not Mentioned')
+    team_leader = models.TextField(default='Not Mentioned')
+    work = models.TextField(default='Not Mentioned')
+
+    #created_at = models.DateTimeField(auto_now=True)
