@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', #add django framework
     'app',  #add our api
+    'calculation', #for performing caculation in Django
 ]
 
 MIDDLEWARE = [
