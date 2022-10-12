@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.response import Response
-from .serializers import EmployeeSerializer, DepartmentSerializer
-from .models import Employee, Department
+from .serializers import EmployeeSerializer, DepartmentSerializer, Dep_EmpSerializer
+from .models import Employee, Department, Dep_Emp
 
 class EmployeeCreateApi(generics.CreateAPIView):
     queryset = Employee.objects.all()
@@ -35,3 +35,20 @@ class DepartmentUpdateApi(generics.RetrieveUpdateAPIView):
 class DepartmentDeleteApi(generics.DestroyAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
+
+#For Department Employee
+class Dep_EmpCreateApi(generics.CreateAPIView):
+    queryset = Dep_Emp.objects.all()
+    serializer_class = Dep_EmpSerializer
+
+class Dep_EmpListApi(generics.ListAPIView):
+    queryset = Dep_Emp.objects.all()
+    serializer_class = Dep_EmpSerializer
+
+class Dep_EmpUpdateApi(generics.RetrieveUpdateAPIView):
+    queryset = Dep_Emp.objects.all()
+    serializer_class = Dep_EmpSerializer
+
+class Dep_EmpDeleteApi(generics.DestroyAPIView):
+    queryset = Dep_Emp.objects.all()
+    serializer_class = Dep_EmpSerializer
