@@ -19,5 +19,5 @@ class Dep_EmpSerializer(serializers.ModelSerializer):
         model = Dep_Emp
         fields = [
                     'Name','Employee_team','team_Leader',
-                    'work','weekly_Work_Hour','Salary'
+                    'work','weekly_Work_Hour','Salary','status'
                     ]
