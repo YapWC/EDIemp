@@ -7,16 +7,20 @@ from .views import (
 
 
 urlpatterns = [
+    #URL to access Employee API
     path('employee/create',EmployeeCreateApi.as_view()),
     path('employee/list',EmployeeListApi.as_view()),
     path('employee/<int:pk>',EmployeeUpdateApi.as_view()),
     path('employee/<int:pk>/delete',EmployeeDeleteApi.as_view()),
 
+    #URL to access Department API
     path('team/emplyoee/create',Dep_EmpCreateApi.as_view()),
     path('team/employee/list',Dep_EmpListApi.as_view()),
     path('team/employee/<int:pk>',Dep_EmpUpdateApi.as_view()),
     path('team/employee/<int:pk>/delete',Dep_EmpDeleteApi.as_view()),
 
+    #URL to access Department 
+    #and Employee API
     path('department/create',DepartmentCreateApi.as_view()),
     path('department/list',DepartmentListApi.as_view()),
     path('department/<int:pk>',DepartmentUpdateApi.as_view()),

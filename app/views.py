@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from .serializers import EmployeeSerializer, DepartmentSerializer, Dep_EmpSerializer
 from .models import Employee, Department, Dep_Emp
 
+#For Employee data query and serialization(display)
 class EmployeeCreateApi(generics.CreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
@@ -19,7 +20,7 @@ class EmployeeDeleteApi(generics.DestroyAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 
-#For Department
+#For Department data query and serialization(display)
 class DepartmentCreateApi(generics.CreateAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
@@ -36,7 +37,8 @@ class DepartmentDeleteApi(generics.DestroyAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
 
-#For Department Employee
+#For Department and Employee
+#data query and serialization(display)
 class Dep_EmpCreateApi(generics.CreateAPIView):
     queryset = Dep_Emp.objects.all()
     serializer_class = Dep_EmpSerializer

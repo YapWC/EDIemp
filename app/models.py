@@ -1,6 +1,6 @@
 from django.db import models
 
-# Creating Employee Entries Here
+# Create Employee Entries Here
 class Employee(models.Model):
     name = models.TextField(default='')
     employee_ID = models.IntegerField(default='',unique=True)
@@ -9,14 +9,14 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
 
-# Creating Department Entries Here
+# Create Department Entries Here
 class Department(models.Model):
     create_department = models.TextField(default='')
 
     def __str__(self):
         return self.create_department
 
-# Creating Employee Entries Based on Their Respective Department
+# Create Department with Employee Assigned
 class Dep_Emp(models.Model):
     work_arrangement = (
                             ('Full Time','Full Time'),
@@ -36,20 +36,32 @@ class Dep_Emp(models.Model):
     work = models.TextField(choices=work_arrangement,default='')
     weekly_Work_Hour = models.IntegerField(default=0)
 
+    #Return with Choices of Employee
     def Name(self):
         return self.employee.name
 
+    #Return with Choices of Department
     def Employee_team(self):
         return self.department.create_department
 
-    def status(self):
-        return self.team_Leader
-
+    #Calculate Salary
+    #For Leader (10% additional pay) 
+    #And Not Leader (0% additonal pay)
     def Salary(self):
         if self.team_Leader == 'TRUE':
-            return self.currency+' '+str(int(self.weekly_Work_Hour)*int(self.employee.hourly_Rate)*4*110/100)
+            return self.currency+' '+str(
+                                        int(
+                                            int(self.weekly_Work_Hour)*
+                                            int(self.employee.hourly_Rate)*
+                                            4*110/100
+                                            )
+                                        )
+        
         else:
-            return self.currency+' '+str(int(self.weekly_Work_Hour)*int(self.employee.hourly_Rate)*4)
+            return self.currency+' '+str(
+                                        int(self.weekly_Work_Hour)*
+                                        int(self.employee.hourly_Rate)*4
+                                        )
 
     def __str__(self):
         return self.department.create_department+'_'+self.employee.name
